@@ -1,0 +1,7 @@
+/headers_auth.json
+/token.txt
+/.idea
+/Music
+/images
+/venv
+/__pycache__
