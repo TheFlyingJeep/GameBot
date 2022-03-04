@@ -26,29 +26,12 @@ async def on_ready():
     print("I am online from here?")
 
 
-@client.command()#Can't test during school need to fix things on laptop :P
-async def checkGrades(ctx):
-    await ctx.send("You should check dms ;)))")
-    person = ctx.author
-    infomsg = await person.send("Please input your name and password :') (WILL NOT BE STORED, CHECK GITHUB FOR CONFIRMATION :'))")
-
-    def check(user, channel):
-        return user.id == person.id and channel.id == infomsg.channel.id
-
+@client.command()
+async def minigames(ctx):
     try:
-        info = await client.wait_for("message", timeout=30, check=check)
-        if len(info) != 2:
-            await person.send("You either excluded info or added too much info XD")
-        else:
-            blaa = info.split()
-            uname, passw = blaa[0], blaa[1]
-            page = requests.get("https://hcpss.instructure.com/grades")
-            print(page)
-            print(uname + " " + passw)
-    except TimeoutError:
-        await person.send("You took too long :P")
-
-
+        games = ctx.message.content.split()[1]
+    except IndexError:
+        games = 5
 
 @client.command()
 async def download(ctx, *, search):
