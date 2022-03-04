@@ -1,5 +1,5 @@
-token.txt
-headers_auth.json
+*.txt
+*.json
 .idea/
 __pycache__/
 chesspieces/
